@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS weather_data.air_quality_by_location_and_epoch (
+    location_name text,
+    last_updated_epoch timestamp,
+    air_quality_carbon_monoxide double,
+    air_quality_gb_defra_index tinyint,
+    air_quality_nitrogen_dioxide double,
+    air_quality_ozone double,
+    air_quality_pm_ten double,
+    air_quality_pm_two_and_half double,
+    air_quality_sulphur_dioxide double,
+    air_quality_us_epa_index tinyint,
+    PRIMARY KEY (location_name, last_updated_epoch)
+) WITH ID = 94bd0ea0-00ea-11ef-b974-895598b627ca
+    AND CLUSTERING ORDER BY (last_updated_epoch DESC)
+    AND additional_write_policy = '99p'
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = {'keys': 'ALL', 'rows_per_partition': 'NONE'}
+    AND cdc = false
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.TimeWindowCompactionStrategy', 'compaction_window_size': '1', 'compaction_window_unit': 'DAYS', 'max_threshold': '32', 'min_threshold': '4'}
+    AND compression = {'chunk_length_in_kb': '16', 'class': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND memtable = 'default'
+    AND crc_check_chance = 1.0
+    AND default_time_to_live = 0
+    AND extensions = {}
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair = 'BLOCKING'
+    AND speculative_retry = '99p';
