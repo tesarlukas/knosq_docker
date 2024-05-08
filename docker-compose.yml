@@ -18,7 +18,7 @@ services:
       CASSANDRA_DC: DC1
       CASSANDRA_RACK: RACK1
       CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
-      CASSANDRA_NUM_TOKENS: 128
+      CASSANDRA_NUM_TOKENS: 8
       HEAP_NEWSIZE: 1M
       MAX_HEAP_SIZE: 2048M
     mem_limit: 3g
